@@ -100,7 +100,7 @@ export default function Contact() {
 
         {/* Form */}
         <motion.div initial={{ opacity:0, x:40 }} animate={inView ? { opacity:1, x:0 } : {}} transition={{ duration:0.7, delay:0.1 }}>
-          <div className="glass" style={{ padding:'2rem', borderRadius:20 }}>
+          <div className="glass contact-form" style={{ padding:'2rem', borderRadius:20 }}>
             {status === 'sent' ? (
               <motion.div initial={{ scale:0.9, opacity:0 }} animate={{ scale:1, opacity:1 }} style={{ textAlign:'center', padding:'2rem' }}>
                 <div style={{ fontSize:'3rem', marginBottom:'1rem' }}>✓</div>
@@ -109,7 +109,7 @@ export default function Contact() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} style={{ display:'flex', flexDirection:'column', gap:'1.1rem' }}>
-                <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem' }}>
+                <div className="contact-name-row" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem' }}>
                   <FloatingInput label="Name" value={values.name||''} error={errors.name?.message}
                     {...register('name', { required:'Required' })} />
                   <FloatingInput label="Email" type="email" value={values.email||''} error={errors.email?.message}
@@ -140,7 +140,15 @@ export default function Contact() {
           </div>
         </motion.div>
       </div>
-      <style>{`@media(max-width:768px){#contact .container{grid-template-columns:1fr !important;}}`}</style>
+      <style>{`
+        @media (max-width: 768px) {
+          #contact .container { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+        }
+        @media (max-width: 480px) {
+          .contact-name-row { grid-template-columns: 1fr !important; }
+          .contact-form { padding: 1.5rem !important; }
+        }
+      `}</style>
     </section>
   );
 }

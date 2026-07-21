@@ -26,7 +26,7 @@ function Modal({ post, onClose }: { post: BlogPost; onClose: () => void }) {
     <motion.div
       initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}
       onClick={e => e.target === e.currentTarget && onClose()}
-      style={{ position:'fixed', inset:0, background:'rgba(0,0,0,0.8)', backdropFilter:'blur(8px)', zIndex:200, display:'flex', alignItems:'center', justifyContent:'center', padding:'1.5rem' }}
+      style={{ position:'fixed', inset:0, background:'rgba(0,0,0,0.8)', backdropFilter:'blur(8px)', WebkitBackdropFilter:'blur(8px)', zIndex:200, display:'flex', alignItems:'center', justifyContent:'center', padding:'clamp(0.75rem, 3vw, 1.5rem)' }}
     >
       <motion.div
         initial={{ scale:0.95, y:20 }} animate={{ scale:1, y:0 }} exit={{ scale:0.95, y:20 }}
@@ -39,13 +39,13 @@ function Modal({ post, onClose }: { post: BlogPost; onClose: () => void }) {
           <div style={{ height:'100%', width:`${readPct}%`, background:'linear-gradient(90deg,var(--accent-dim),var(--accent2))', transition:'width 0.1s' }} />
         </div>
 
-        <div style={{ overflow:'auto', flex:1, padding:'2rem 2.5rem 2.5rem' }}
+        <div className="blog-modal-body" style={{ overflow:'auto', flex:1, padding:'2rem 2.5rem 2.5rem' }}
           onScroll={e => {
             const el = e.currentTarget;
             setReadPct(Math.round((el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100));
           }}>
           <div style={{ display:'flex', justifyContent:'flex-end', marginBottom:'1rem' }}>
-            <button onClick={onClose} style={{ background:'var(--surface-2)', border:'1px solid var(--border)', borderRadius:'50%', width:34, height:34, display:'flex', alignItems:'center', justifyContent:'center', cursor:'pointer', color:'var(--muted)', transition:'all 0.2s' }}
+            <button onClick={onClose} aria-label="Close post" style={{ background:'var(--surface-2)', border:'1px solid var(--border)', borderRadius:'50%', width:40, height:40, flexShrink:0, display:'flex', alignItems:'center', justifyContent:'center', cursor:'pointer', color:'var(--muted)', transition:'all 0.2s' }}
               onMouseEnter={e => { (e.currentTarget.style.color)='#f87171'; (e.currentTarget.style.borderColor)='#f87171'; (e.currentTarget.style.transform)='rotate(90deg)'; }}
               onMouseLeave={e => { (e.currentTarget.style.color)='var(--muted)'; (e.currentTarget.style.borderColor)='var(--border)'; (e.currentTarget.style.transform)=''; }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -96,7 +96,7 @@ export default function Blog() {
             {search ? 'No posts match your search.' : 'No posts yet — check back soon.'}
           </p>
         ) : (
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(300px, 1fr))', gap:'1.4rem', marginTop:'2rem' }}>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(min(100%, 300px), 1fr))', gap:'1.4rem', marginTop:'2rem' }}>
             {filtered.map((p, i) => (
               <motion.article key={p.id}
                 initial={{ opacity:0, y:24 }} animate={inView ? { opacity:1, y:0 } : {}} transition={{ delay:0.1 + i*0.08 }}
@@ -129,6 +129,11 @@ export default function Blog() {
         )}
       </div>
       <AnimatePresence>{active && <Modal post={active} onClose={() => setActive(null)} />}</AnimatePresence>
+      <style>{`
+        @media (max-width: 560px) {
+          .blog-modal-body { padding: 1.5rem 1.35rem 1.75rem !important; }
+        }
+      `}</style>
     </section>
   );
 }

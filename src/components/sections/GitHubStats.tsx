@@ -70,7 +70,7 @@ export default function GitHubStats() {
 
         {/* Top repos */}
         {repos.length > 0 && (
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(280px, 1fr))', gap:'1rem', marginTop:'1.5rem' }}>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(min(100%, 260px), 1fr))', gap:'1rem', marginTop:'1.5rem' }}>
             {repos.slice(0,6).map((r, i) => (
               <motion.a key={r.id} href={r.html_url} target="_blank" rel="noopener noreferrer"
                 initial={{ opacity:0, y:16 }} animate={inView ? { opacity:1, y:0 } : {}} transition={{ delay:0.3+i*0.07 }}

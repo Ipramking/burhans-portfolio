@@ -33,17 +33,8 @@ export default function Skills() {
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              style={{
-                padding: '0.4rem 1rem',
-                borderRadius: 8,
-                fontFamily: 'JetBrains Mono, monospace',
-                fontSize: '0.78rem',
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-                background: active === cat ? 'var(--accent-dim)' : 'var(--surface)',
-                color:      active === cat ? 'white' : 'var(--text-2)',
-                border:     active === cat ? '1px solid var(--accent-dim)' : '1px solid var(--border)',
-              }}
+              className="filter-chip"
+              data-active={active === cat}
             >
               {cat}
             </button>

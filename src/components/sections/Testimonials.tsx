@@ -24,8 +24,8 @@ export default function Testimonials() {
       {/* Marquee */}
       <div style={{ position:'relative', marginTop:'2.5rem', overflow:'hidden' }}>
         {/* Fade edges */}
-        <div style={{ position:'absolute', left:0, top:0, bottom:0, width:120, background:'linear-gradient(to right, var(--bg-2), transparent)', zIndex:2, pointerEvents:'none' }} />
-        <div style={{ position:'absolute', right:0, top:0, bottom:0, width:120, background:'linear-gradient(to left, var(--bg-2), transparent)', zIndex:2, pointerEvents:'none' }} />
+        <div style={{ position:'absolute', left:0, top:0, bottom:0, width:'clamp(40px, 12vw, 120px)', background:'linear-gradient(to right, var(--bg-2), transparent)', zIndex:2, pointerEvents:'none' }} />
+        <div style={{ position:'absolute', right:0, top:0, bottom:0, width:'clamp(40px, 12vw, 120px)', background:'linear-gradient(to left, var(--bg-2), transparent)', zIndex:2, pointerEvents:'none' }} />
 
         <motion.div
           animate={{ x: [0, -(items.length * 380)] }}

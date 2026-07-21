@@ -23,7 +23,7 @@ export default function About() {
           About <span className="gradient-text">Me</span>
         </motion.h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: '4rem', alignItems: 'center', marginTop: '3rem' }}>
+        <div className="about-grid">
           {/* Text */}
           <motion.div variants={fadeUp(0.15)} initial="hidden" animate={inView ? 'show' : 'hidden'} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <p style={{ fontSize: '1.05rem', color: 'var(--text-2)', lineHeight: 1.8 }}>{p.bio1 || DEFAULT_PROFILE.bio1}</p>
@@ -54,6 +54,7 @@ export default function About() {
 
           {/* Photo card */}
           <motion.div
+            className="about-photo"
             variants={fadeUp(0.2)}
             initial="hidden" animate={inView ? 'show' : 'hidden'}
             whileHover={{ rotateY: 5, rotateX: -5 }}
@@ -111,9 +112,16 @@ export default function About() {
 
       <style>{`
         @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,0.4)} 50%{box-shadow:0 0 0 6px transparent} }
-        @media(max-width:900px){
-          #about .container > div { grid-template-columns: 1fr !important; }
-          #about .container > div > div:last-child { max-width: 280px; margin: 0 auto; }
+        .about-grid {
+          display: grid;
+          grid-template-columns: 1fr 340px;
+          gap: 4rem;
+          align-items: center;
+          margin-top: 3rem;
+        }
+        @media (max-width: 900px) {
+          .about-grid { grid-template-columns: 1fr; gap: 3rem; margin-top: 2.5rem; }
+          .about-photo { max-width: 300px; margin-inline: auto; width: 100%; }
         }
       `}</style>
     </section>

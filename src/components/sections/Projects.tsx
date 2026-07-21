@@ -52,18 +52,12 @@ export default function Projects() {
         <motion.div initial={{ opacity:0, y:16 }} animate={inView ? { opacity:1, y:0 } : {}} transition={{ delay:0.18 }}
           style={{ display:'flex', flexWrap:'wrap', gap:'0.5rem', margin:'2rem 0' }}>
           {allTags.map(t => (
-            <button key={t} onClick={() => setFilter(t)} style={{
-              padding:'0.4rem 1rem', borderRadius:8,
-              fontFamily:'JetBrains Mono, monospace', fontSize:'0.75rem', cursor:'pointer', transition:'all 0.2s',
-              background: filter===t ? 'var(--accent-dim)' : 'var(--surface)',
-              color:       filter===t ? 'white' : 'var(--text-2)',
-              border:      filter===t ? '1px solid var(--accent-dim)' : '1px solid var(--border)',
-            }}>{t}</button>
+            <button key={t} onClick={() => setFilter(t)} className="filter-chip" data-active={filter === t}>{t}</button>
           ))}
         </motion.div>
 
         <LayoutGroup>
-          <motion.div layout style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(320px, 1fr))', gap:'1.5rem' }}>
+          <motion.div layout style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(min(100%, 300px), 1fr))', gap:'1.5rem' }}>
             <AnimatePresence mode="popLayout">
               {filtered.map((p, i) => {
                 const thumb = thumbUrl(p);

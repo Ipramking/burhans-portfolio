@@ -25,86 +25,69 @@ export default function Experience() {
           Experience <span className="gradient-text">&</span> Education
         </motion.h2>
 
-        <div style={{ position:'relative', marginTop:'3.5rem' }}>
+        <div className="timeline">
           {/* Timeline spine */}
           <motion.div
+            className="timeline-spine"
             initial={{ scaleY:0 }}
             animate={inView ? { scaleY:1 } : {}}
             transition={{ duration:1.2, delay:0.3, ease:[0.25,0.46,0.45,0.94] }}
-            style={{
-              position:'absolute', left:'50%', top:0, bottom:0,
-              width:2, transformOrigin:'top',
-              background:'linear-gradient(to bottom, var(--accent-dim), var(--accent2), transparent)',
-              transform:'translateX(-50%)',
-            }}
           />
 
-          {exp.map((e, i) => {
-            const isLeft = i % 2 === 0;
-            return (
-              <motion.div
-                key={e.id}
-                initial={{ opacity:0, x: isLeft ? -50 : 50 }}
-                animate={inView ? { opacity:1, x:0 } : {}}
-                transition={{ duration:0.7, delay:0.2 + i*0.15, ease:[0.25,0.46,0.45,0.94] }}
-                style={{
-                  display:'grid',
-                  gridTemplateColumns:'1fr 60px 1fr',
-                  gap:'0 1rem',
-                  marginBottom:'3rem',
-                  alignItems:'center',
-                }}
-              >
-                {/* Left card */}
-                {isLeft ? (
-                  <div className="glass" style={{ padding:'1.5rem', borderRadius:16, gridColumn:1 }}>
-                    <TimelineCard entry={e} />
-                  </div>
-                ) : <div />}
-
-                {/* Center dot */}
-                <div style={{ display:'flex', justifyContent:'center', alignItems:'center', gridColumn:2 }}>
-                  <motion.div
-                    whileInView={{ scale:[0,1.2,1] }}
-                    transition={{ duration:0.5, delay:0.3+i*0.15 }}
-                    style={{
-                      width:14, height:14, borderRadius:'50%',
-                      background:'linear-gradient(135deg, var(--accent-dim), var(--accent2))',
-                      boxShadow:'0 0 12px var(--accent-glow)',
-                    }}
-                  />
-                </div>
-
-                {/* Right card */}
-                {!isLeft ? (
-                  <div className="glass" style={{ padding:'1.5rem', borderRadius:16, gridColumn:3 }}>
-                    <TimelineCard entry={e} />
-                  </div>
-                ) : <div />}
-              </motion.div>
-            );
-          })}
+          {exp.map((e, i) => (
+            <motion.div
+              key={e.id}
+              className="timeline-item"
+              initial={{ opacity:0, y:32 }}
+              animate={inView ? { opacity:1, y:0 } : {}}
+              transition={{ duration:0.7, delay:0.2 + i*0.12, ease:[0.25,0.46,0.45,0.94] }}
+            >
+              <motion.span
+                className="timeline-dot"
+                initial={{ scale:0 }}
+                animate={inView ? { scale:[0,1.25,1] } : {}}
+                transition={{ duration:0.5, delay:0.35 + i*0.12 }}
+              />
+              <div className="glass timeline-card">
+                <TimelineCard entry={e} />
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
 
       <style>{`
-        @media(max-width:768px){
-          #experience .container > div > div {
-            grid-template-columns: 1fr !important;
+        .timeline { position: relative; margin-top: 3.5rem; }
+        .timeline-spine {
+          position: absolute; top: 0; bottom: 0; width: 2px;
+          left: 50%; transform: translateX(-50%); transform-origin: top;
+          background: linear-gradient(to bottom, var(--accent-dim), var(--accent2), transparent);
+        }
+        .timeline-item {
+          position: relative;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          margin-bottom: 2.75rem;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-card { padding: 1.5rem; border-radius: 16px; }
+        .timeline-item:nth-child(odd)  .timeline-card { grid-column: 1; margin-right: 2.75rem; }
+        .timeline-item:nth-child(even) .timeline-card { grid-column: 2; margin-left: 2.75rem; }
+        .timeline-dot {
+          position: absolute; left: 50%; top: 1.75rem; transform: translateX(-50%);
+          width: 16px; height: 16px; border-radius: 50%;
+          background: linear-gradient(135deg, var(--accent-dim), var(--accent2));
+          box-shadow: 0 0 0 4px var(--bg), 0 0 14px var(--accent-glow);
+          z-index: 1;
+        }
+        @media (max-width: 768px) {
+          .timeline-spine { left: 7px; transform: none; }
+          .timeline-item { grid-template-columns: 1fr; }
+          .timeline-item .timeline-card {
+            grid-column: 1 !important;
+            margin: 0 0 0 2.25rem !important;
           }
-          #experience .container > div > div > div:first-child:empty,
-          #experience .container > div > div > div:last-child:empty { display: none !important; }
-          #experience .container > div > div > div[style*="grid-column: 2"] { display: none !important; }
-          #experience .container > div > div > div.glass { grid-column: 1 !important; }
-          #experience .container > div > div:before {
-            content: '';
-            display: block;
-            width: 2px;
-            background: var(--accent);
-            position: absolute;
-            left: 0;
-            top: 0; bottom: 0;
-          }
+          .timeline-dot { left: 7px; transform: none; top: 1.6rem; }
         }
       `}</style>
     </section>

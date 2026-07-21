@@ -31,7 +31,7 @@ export default function Building() {
 
         <motion.div
           initial={{ opacity:0, y:32 }} animate={inView ? { opacity:1, y:0 } : {}} transition={{ delay:0.2, duration:0.7 }}
-          className="glass"
+          className="glass building-card"
           style={{
             marginTop:'2.5rem',
             padding:'2.5rem',
@@ -84,7 +84,17 @@ export default function Building() {
           </motion.div>
         </motion.div>
       </div>
-      <style>{`@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}50%{box-shadow:0 0 0 6px transparent}}`}</style>
+      <style>{`
+        @keyframes livePulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}50%{box-shadow:0 0 0 6px transparent}}
+        @media (max-width: 700px) {
+          .building-card {
+            grid-template-columns: 1fr !important;
+            padding: 1.75rem !important;
+            gap: 1.5rem !important;
+          }
+          .building-card > div:last-child { align-items: flex-start !important; }
+        }
+      `}</style>
     </section>
   );
 }

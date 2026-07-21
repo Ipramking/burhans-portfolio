@@ -56,7 +56,7 @@ export default function Hero() {
   const [profile] = useLocalStorage(LS.profile, DEFAULT_PROFILE);
 
   return (
-    <section id="hero" style={{ minHeight: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden', paddingTop: 80 }}>
+    <section id="hero" style={{ minHeight: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden', paddingTop: 'calc(80px + env(safe-area-inset-top))' }}>
 
       {/* Aurora orbs */}
       <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden' }}>
@@ -114,10 +114,11 @@ export default function Hero() {
           style={{
             fontFamily: 'Syne, sans-serif',
             fontWeight: 800,
-            fontSize: 'clamp(3.5rem, 10vw, 7rem)',
+            fontSize: 'clamp(2.75rem, 12vw, 7rem)',
             letterSpacing: '-0.05em',
             lineHeight: 0.95,
             marginBottom: '1.25rem',
+            overflowWrap: 'break-word',
           }}
         >
           <span className="gradient-text">{profile.name || 'Your Name'}</span>
