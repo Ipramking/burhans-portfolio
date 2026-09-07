@@ -4,16 +4,16 @@ import type {
 } from './types';
 
 export const DEFAULT_PROFILE: Profile = {
-  name: 'Your Name',
+  name: 'Burhan',
   role: 'Full-Stack Developer',
   tagline: 'I build things for the web — clean, fast, and purposeful.',
-  bio1: "I'm a passionate developer based in [Your City]. I love turning complex problems into simple, beautiful, and intuitive solutions.",
+  bio1: "I'm a passionate developer creating modern digital experiences and scalable web systems.",
   bio2: 'I care deeply about clean architecture, performance, and shipping things that actually work.',
-  h1: '[Your University / Bootcamp]',
-  h2: '[Your current role or status]',
+  h1: 'Computer Science Graduate',
+  h2: 'Full-Stack Engineer',
   h3: 'Open to opportunities',
-  email: '230404097@live.unilag.edu.ng',
-  githubUsername: 'Ipramking',
+  email: 'burhan@example.com',
+  githubUsername: 'burhan',
   resumeUrl: '',
 };
 
@@ -74,18 +74,18 @@ export const DEFAULT_EXPERIENCE: ExperienceEntry[] = [
 ];
 
 export const DEFAULT_PROJECTS: Project[] = [
-  { id: 1, title: 'Project One',   description: 'A short description of what this project does and the problem it solves.',   tags: ['React', 'Node.js', 'MongoDB'],   github: 'https://github.com/Ipramking', live: 'https://ipramking-portfolio.vercel.app', featured: true  },
-  { id: 2, title: 'Project Two',   description: 'Another project. Highlight what makes it interesting.',                       tags: ['Python', 'FastAPI', 'PostgreSQL'], github: 'https://github.com/Ipramking', live: '',                                      featured: true  },
-  { id: 3, title: 'Project Three', description: 'Third project.',                                                               tags: ['Next.js', 'Tailwind', 'Supabase'], github: 'https://github.com/Ipramking', live: '',                                      featured: false },
+  { id: 1, title: 'Project One',   description: 'A short description of what this project does and the problem it solves.',   tags: ['React', 'Node.js', 'PostgreSQL'], github: 'https://github.com', live: 'https://example.com', featured: true  },
+  { id: 2, title: 'Project Two',   description: 'Another project. Highlight what makes it interesting.',                       tags: ['TypeScript', 'Tailwind', 'Go'],    github: 'https://github.com', live: '',                featured: true  },
+  { id: 3, title: 'Project Three', description: 'Third project.',                                                               tags: ['Next.js', 'GraphQL', 'Supabase'],  github: 'https://github.com', live: '',                featured: false },
 ];
 
 export const DEFAULT_BUILDING: BuildingItem = {
   show: true,
-  title: 'Portfolio v3',
+  title: 'Portfolio v2',
   description: 'Rebuilding my personal portfolio with React, TypeScript, Framer Motion and a fully custom admin panel.',
   status: 'In Progress',
   tags: ['React', 'TypeScript', 'Framer Motion'],
-  link: 'https://github.com/Ipramking/portfolio-react',
+  link: 'https://github.com',
 };
 
 export const DEFAULT_BLOG: BlogPost[] = [];
@@ -97,9 +97,9 @@ export const DEFAULT_TESTIMONIALS: Testimonial[] = [
 ];
 
 export const DEFAULT_SOCIALS: SocialLink[] = [
-  { name: 'GitHub',      url: 'https://github.com/Ipramking' },
-  { name: 'LinkedIn',    url: 'https://linkedin.com/in/yourusername' },
-  { name: 'Twitter / X', url: 'https://twitter.com/yourusername' },
+  { name: 'GitHub',      url: 'https://github.com' },
+  { name: 'LinkedIn',    url: 'https://linkedin.com' },
+  { name: 'Twitter / X', url: 'https://twitter.com' },
 ];
 
 export const DEFAULT_EMAILJS: EmailJSConfig = {

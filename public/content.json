@@ -1,16 +1,16 @@
 {
   "_timestamp": 0,
   "pf_profile": {
-    "name": "Your Name",
+    "name": "Burhan",
     "role": "Full-Stack Developer",
     "tagline": "I build things for the web — clean, fast, and purposeful.",
-    "bio1": "I'm a passionate developer based in [Your City]. I love turning complex problems into simple, beautiful, and intuitive solutions.",
+    "bio1": "I'm a passionate developer creating elegant digital experiences and scalable web systems.",
     "bio2": "I care deeply about clean architecture, performance, and shipping things that actually work.",
-    "h1": "[Your University / Bootcamp]",
-    "h2": "[Your current role or status]",
+    "h1": "Computer Science Graduate",
+    "h2": "Full-Stack Engineer",
     "h3": "Open to opportunities",
-    "email": "230404097@live.unilag.edu.ng",
-    "githubUsername": "Ipramking",
+    "email": "burhan@example.com",
+    "githubUsername": "burhan",
     "resumeUrl": ""
   },
   "pf_skills": [
@@ -47,23 +47,23 @@
     {
       "id": 1,
       "role": "Frontend Developer",
-      "company": "Your Company",
-      "location": "Lagos, Nigeria",
+      "company": "Tech Corp",
+      "location": "San Francisco, CA / Remote",
       "start": "2024-01",
       "end": "",
       "current": true,
-      "description": "Describe what you did, what you built, the impact you had.",
+      "description": "Engineered modern responsive user interfaces and optimized web app rendering performance.",
       "tags": ["React", "TypeScript", "Node.js"]
     }
   ],
   "pf_projects": [
     {
       "id": 1,
-      "title": "Project One",
-      "description": "A short description of what this project does.",
-      "tags": ["React", "Node.js", "MongoDB"],
-      "github": "https://github.com/Ipramking",
-      "live": "",
+      "title": "CloudPulse Telemetry",
+      "description": "A high-performance streaming metrics and dashboard visualization platform.",
+      "tags": ["React", "TypeScript", "Tailwind"],
+      "github": "https://github.com",
+      "live": "https://example.com",
       "featured": true
     }
   ],
@@ -73,14 +73,14 @@
     "description": "Rebuilding my personal portfolio with React, TypeScript and Framer Motion.",
     "status": "In Progress",
     "tags": ["React", "TypeScript", "Framer Motion"],
-    "link": "https://github.com/Ipramking/portfolio-v2"
+    "link": "https://github.com"
   },
   "pf_blog": [],
   "pf_testimonials": [],
   "pf_socials": [
-    { "name": "GitHub",    "url": "https://github.com/Ipramking" },
-    { "name": "LinkedIn",  "url": "https://linkedin.com/in/yourusername" },
-    { "name": "Twitter / X", "url": "https://twitter.com/yourusername" }
+    { "name": "GitHub",    "url": "https://github.com" },
+    { "name": "LinkedIn",  "url": "https://linkedin.com" },
+    { "name": "Twitter / X", "url": "https://twitter.com" }
   ],
   "pf_emailjs": {
     "serviceId": "",

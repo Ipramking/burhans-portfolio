@@ -1,33 +1,43 @@
 /* ── FONT IMPORTS ─────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* ── DESIGN TOKENS — DARK (default) ──────────────────────────── */
+/* ── DESIGN TOKENS — DARK (default: Luxury Sapphire Blue & Champagne Gold) ─ */
 :root,
 [data-theme='dark'] {
-  --bg:           #04040a;
-  --bg-2:         #080812;
-  --surface:      #0c0c18;
-  --surface-2:    #10101e;
-  --border:       #1a1a2e;
-  --border-2:     #222238;
+  --bg:           #030712;
+  --bg-2:         #080e22;
+  --surface:      #0c1533;
+  --surface-2:    #111d44;
+  --border:       #172554;
+  --border-2:     #1e3a8a;
 
-  --accent:       #818cf8;   /* indigo-400  */
-  --accent-dim:   #6366f1;   /* indigo-500  */
-  --accent2:      #c084fc;   /* purple-400  */
-  --accent3:      #f472b6;   /* pink-400    */
-  --accent-glow:  rgba(99,102,241,0.25);
+  --accent:       #3b82f6;   /* Luxury Sapphire Blue */
+  --accent-dim:   #1d4ed8;   /* Royal Blue */
+  --accent2:      #60a5fa;   /* Brilliant Azure */
+  --accent3:      #fbbf24;   /* Champagne Royal Gold */
+  --accent-glow:  rgba(59, 130, 246, 0.3);
 
-  --text:         #e8e8f4;
-  --text-2:       #a0a0c0;
-  --muted:        #60607a;
+  --text:         #f1f5f9;
+  --text-2:       #94a3b8;
+  --muted:        #64748b;
 
-  --glass-bg:     rgba(12, 12, 24, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-bg:     rgba(10, 18, 40, 0.7);
+  --glass-border: rgba(59, 130, 246, 0.12);
 
   --shadow-sm:    0 1px 3px rgba(0,0,0,0.5);
   --shadow-md:    0 4px 20px rgba(0,0,0,0.4);
   --shadow-lg:    0 12px 48px rgba(0,0,0,0.6);
-  --shadow-glow:  0 0 40px rgba(99,102,241,0.15);
+  --shadow-glow:  0 0 45px rgba(59, 130, 246, 0.2);
+}
+
+/* ── GOLD ACCENT VARIANT ──────────────────────────────────────── */
+[data-accent='gold'] {
+  --accent:       #fbbf24;   /* Champagne Gold */
+  --accent-dim:   #d97706;   /* Warm Gold */
+  --accent2:      #f59e0b;   /* Amber Gold */
+  --accent3:      #60a5fa;   /* Sapphire Blue Highlight */
+  --accent-glow:  rgba(245, 158, 11, 0.3);
+  --shadow-glow:  0 0 45px rgba(245, 158, 11, 0.2);
 }
 
 /* ── DESIGN TOKENS — LIGHT ────────────────────────────────────── */
